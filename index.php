@@ -1,20 +1,19 @@
-<?php
-echo "Hello, World!"; //  writes out hello world to the broswer/terminal
-// oh
-// mama
-
-/**
- * e
- * e
- * e
- * long comment
- */
-
-$name = "Arthur Morgan";
-$age = 36;
-echo $name;
-
-echo $age;
-$age = $age * 2;
-echo $age;
-?>
+<?php 
+$test = 10;
+$test = 3.1;
+$test = "Hello world";
+$test = "õpilane";
+$test = true;
+$test = false;
+$test = null;
+$lol;
+var_dump($test);
+var_dump($lol);
+$test = [1, 2, "three", true];
+var_dump($test);
+$test = new stdClass();
+$test->name = "Arthur";
+var_dump($test);
+$num1 = 10;
+$num2 = "10";
+var_dump($num1 === $num2);
