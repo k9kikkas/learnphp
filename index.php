@@ -2,10 +2,10 @@
 
 class Box {
     public $width;
-    public $height;
-    public $length;
-    public $isOpen = false;
-    public $hasBeenOpened = false;
+    private $height;
+    protected $length;
+    public bool $isOpen = false;
+    public bool $hasBeenOpened = false;
 
     public function open() {
         $this->isOpen = true;
@@ -19,15 +19,30 @@ class Box {
     public function volume() {
         return $this->height * $this->length * $this->width;
     }
+
+    public function test(){
+        var_dump($this->length);
+    }
+
+    public function setHeight(int $height) {
+        if($height > 0) {
+            $this->height = $height;
+        }
+    }
+
+    public function getHeight() {
+        return $this->height;
+    }
 }
 
-$num1 = 1;
-$num2 = &$num1; // pointer pass by reference
-$num1 = 2;
-var_dump($num1, $num2);
+class MetalBox extends Box {
+    public $weight;
 
-$box1 = new Box();
-$box1->width = 1;
-$box2 = clone $box1; // use clone to create new object
-$box1->width = 2;
-var_dump($box1, $box2);
+    public function mass(){
+        return $this->volume() * $this->weight;
+    }
+}
+
+$metal1 = new Box();
+var_dump($metal1->height);
+var_dump($metal1);
