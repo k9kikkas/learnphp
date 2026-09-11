@@ -1,31 +1,12 @@
 <?php
-$name = 'Marta';
-$coinFlip = rand(0,1);
-?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Hello <?=$name?>!</h1>
-    <?php if($coinFlip): ?>
-        <h1>Kull</h1>
-    <?php else: ?>
-        <h1>Kiri</h1>
-    <?php endif; ?> 
+// finding the sum of the numbers that are multiplied by 3 and 5 under 1000 
 
-    <ul>
-        <?php for($i=0;$i<10;$i++): ?>
-        <li><?=$i?></li>
-        <?php endfor ?>
-    </ul>
-    
-</body>
-</html>
+$sum = 0;
 
-
-
+for($i=1;$i<1000;$i++) { // i is 1 and it will go up 1 number at a time until it reaches 1000
+    if($i%3 === 0 || $i%5 === 0) { // this will only pass through numbers that we're looking for, so anything that is % with 3 and 5
+        $sum+=$i; // then it will add to the sum?? idk something like that
+    }
+}
+var_dump($sum);
