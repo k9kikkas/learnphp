@@ -1,1 +1,1 @@
-control c - close server
+you are a proud intependent black woman
