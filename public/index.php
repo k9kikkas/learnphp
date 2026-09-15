@@ -37,6 +37,7 @@ switch($_SERVER['REQUEST_URI']) {
               'author' => 'Tommi sularaha',
             ],
         ];
+        include __DIR__ . '/../views/index.php';
         break;
     case '/us':
         $title = 'U.S';
@@ -66,6 +67,7 @@ switch($_SERVER['REQUEST_URI']) {
                 'author' => 'Tommi sularaha',
             ],
         ];
+        include __DIR__ . '/../views/us.php';
         break;
     case '/tech':
         $title = 'Tech';
@@ -95,6 +97,7 @@ switch($_SERVER['REQUEST_URI']) {
               'author' => 'Tommi sularaha',
             ],
         ];
+        include __DIR__ . '/../views/tech.php';
         break;
     default:
         echo '404';
