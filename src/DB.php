@@ -1,6 +1,7 @@
 <?php
 namespace App;
 
+use App\Models\Article;
 use PDO;
 use PDOException;
 
@@ -19,10 +20,10 @@ class DB {
         }
     }
 
-    public function all() {
-            $sql = "SELECT * FROM articles";
+    public function all($table, $class) {
+            $sql = "SELECT * FROM $table";
             $result = $this->conn->query($sql);
-            $result->setFetchMode(PDO::FETCH_ASSOC);
+            $result->setFetchMode(PDO::FETCH_CLASS, $class);
             return $result->fetchALL();
             
     }
