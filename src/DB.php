@@ -43,4 +43,21 @@ class DB {
         $result->setFetchMode(PDO::FETCH_CLASS, $class);
         return $result->fetch();
     }
+
+    public function update($table, $fields, $id) {
+        $updateText = '';
+        foreach($fields as $name=>$value) {
+            $updateText .= "$name='$value', ";
+        }
+        $updateText = substr($updateText, 0, -2);
+        $sql = "UPDATE $table
+                SET $updateText
+                WHERE id=$id";
+        $this->conn->exec($sql);
+    }
+
+    public function delete($table, $id) {
+        $sql = "DELETE FROM $table WHERE id=$id";
+        $this->conn->exec($sql);
+    }
 }
