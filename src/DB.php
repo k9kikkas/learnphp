@@ -1,7 +1,6 @@
 <?php
 namespace App;
 
-use App\Models\Article;
 use PDO;
 use PDOException;
 
@@ -28,7 +27,7 @@ class DB {
             
     }
 
-        public function insert($table, $fields) {
+    public function insert($table, $fields) {
         $fieldNames = array_keys($fields);
         $fieldNamesText = implode(', ', $fieldNames);
         $fieldValuesText = implode("', '", $fields);
@@ -36,5 +35,12 @@ class DB {
         $sql = "INSERT INTO $table ($fieldNamesText)
                 VALUES ('$fieldValuesText')";
         $this->conn->exec($sql);
+    }
+
+    public function find($table, $class, $id) {
+        $sql = "SELECT * FROM $table WHERE id=$id";
+        $result = $this->conn->query($sql);
+        $result->setFetchMode(PDO::FETCH_CLASS, $class);
+        return $result->fetch();
     }
 }

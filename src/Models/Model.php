@@ -13,6 +13,11 @@ abstract class Model {
         return $db->all(static::$table, static::class);
     }
 
+    public static function find($id) {
+        $db = new DB();
+        return $db->find(static::$table, static::class, $id);
+    }
+
     public function save() {
         $fields = get_object_vars($this);
         unset($fields['id']);
